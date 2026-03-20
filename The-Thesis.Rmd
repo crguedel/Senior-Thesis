@@ -5,6 +5,8 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   #github_document:
   bookdown::pdf_document2:
+    keep_tex: true
+    extra_dependencies: ["float"]
     number_sections: False
     fig_caption: True
     fig_width: 6
@@ -28,7 +30,7 @@ header-includes:
    - \usepackage{fvextra}
    - \usepackage{float}
    - \usepackage{placeins}
-   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true, breakanywhere=true, commandchars=\\\{\}}
    - \usepackage{setspace}
    - \linespread{1.5}
 ---
@@ -43,8 +45,8 @@ knitr::opts_chunk$set(
   warning = TRUE,
   message = TRUE,
   fig.align = 'center',
-  fig.height = 7,
-  fig.width = 7)
+  fig.width = 6,
+  fig.height = 4)
 library(installr)
 library(formatR)
 library(gridExtra)
@@ -71,6 +73,7 @@ scale_color_brewer(palette = "Dark2")
 #updateR()
 #setwd()
 getwd()
+#tinytex::reinstall_tinytex(repository = "illinois")
 ```
 
 \newpage
@@ -129,8 +132,6 @@ import_rcp_csv <- function(file_path, date, n_compound) {
   # Express date as "year-month-day" so "2026-01-28"
 file = paste0(
      file_path,
-     date,
-     "/",
      date,
      "/",
      date,
@@ -236,7 +237,7 @@ return(data)
 ```{r rcp_csv_preplot_func, echo = F}
 ## Generalized formula for any order of bottles - makes repeater above semi-obsolete
 rcp_csv_preplot <- function(df, bottle_names, num_calib, num_air) {
-  if(length(bottle_names) != (nrow(df)-num_calib-num_air)){
+  if(length(bottle_names) != (nrow(df)-(num_calib+num_air))){
     stop("number of bottle names does not equal number of rows in the data!")
   }
   bottling_time = 1 #about 30 seconds to seal each incubation bottle
@@ -324,7 +325,7 @@ ggplot(data = all_stats.df, mapping = aes(x = WP_mPa, y = Saturation, color = so
   scale_color_brewer(palette = "Dark2")
 ```
 
-```{r Long-Soy-Undisturbed-14, echo = F}
+```{r Long-Soy-UD, echo = F}
 file_path = paste0(getwd(),"/")
 date = "2026-01-28"
 n_compound = 2
@@ -844,11 +845,10 @@ qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'poin
   xlab("time (minutes)") +
   ylab("H2 Concentration [ppm]") +
   theme(legend.position = "bottom")
-view(all_st)
 ```
 
-## Fairgrown Farms
 
+## Good Soy Runs
 
 ```{r Short-Soy-UD, echo = F}
 file_path = paste0(getwd(),"/")
@@ -870,7 +870,217 @@ num.std = 4 # number of starter calibration samples
 num.air = 5 # Number of starter air samples
 
 import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
-import.df <- import.df[-nrow(import.df), ]
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+
+```
+
+```{r Short-Soy-C, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-10"
+n_compound = 2
+bnames = c(
+  rep(
+    x = c(
+    "Short-Soy-C-15-1",
+    "Short-Soy-C-15-2",
+    "Short-Soy-C-15-3",
+    "Short-Soy-C-25-1",
+    "Short-Soy-C-25-2",
+    "Short-Soy-C-25-3"
+    ),
+    times = 5),
+    "Short-Soy-C-15-1",
+    "Short-Soy-C-15-2",
+    "Short-Soy-C-15-3"
+  )
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+```
+
+## Fairgrown Farms
+
+```{r FGF-OR-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-14"
+n_compound = 2
+bnames = c(
+  rep(
+    x = c(
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3"
+    ),
+    times = 3
+  ),
+  "FGF-OR-25-1",
+  "FGF-OR-25-2",
+  "FGF-OR-25-3",
+  rep(
+    x = c(
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3"
+    ),
+    times = 2
+  ),
+  "FGF-OR-25-1",
+  "FGF-OR-25-2",
+  "FGF-OR-25-3",
+  rep(
+    x = c(
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3"
+    ),
+    times = 1
+  ),
+  "FGF-OR-25-1",
+  "FGF-OR-25-2",
+  "FGF-OR-25-3",
+  "FGF-OR-25-1",
+  "FGF-OR-25-2",
+  "FGF-OR-25-3",
+  "FGF-OR-15-1",
+  "FGF-OR-15-2",
+  "FGF-OR-15-3",
+  "FGF-OR-25-1",
+  "FGF-OR-25-3",
+  rep(
+    x = c(
+      "FGF-OR-15-1",
+      "FGF-OR-15-2",
+      "FGF-OR-15-3"
+    ),
+    times = 5
+  ),
+  "FGF-OR-15-1",
+  "FGF-OR-15-2",
+  "FGF-OR-15-3",
+  "FGF-OR-15-2",
+  "FGF-OR-15-3",
+  "FGF-OR-15-1",
+  "FGF-OR-15-1",
+  "FGF-OR-15-2",
+  "FGF-OR-15-3"
+)
+length(bnames)
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+
+```
+
+```{r FGF-RO-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-15"
+n_compound = 2
+bnames = c(
+  rep(
+    x = c(
+      "FGF-OR-15-1",
+      "FGF-OR-15-2",
+      "FGF-OR-15-3",
+      "FGF-OR-25-1",
+      "FGF-OR-25-2",
+      "FGF-OR-25-3"
+    ),
+    times = 4
+  ),
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3",
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3",
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3",
+    "FGF-OR-15-1",
+    "FGF-OR-15-2",
+    "FGF-OR-15-3",
+    "FGF-OR-25-1",
+    "FGF-OR-25-2",
+    "FGF-OR-25-3"
+)
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+
+```
+
+```{r FGF-SOD-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-18"
+n_compound = 2
+bnames =
+  rep(
+    x = c(
+    "FGF-SOD-15-1",
+    "FGF-SOD-15-2",
+    "FGF-SOD-15-3",
+    "FGF-SOD-25-1",
+    "FGF-SOD-25-2",
+    "FGF-SOD-25-3"
+    ),
+    times = 7
+  )
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
 
 prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
 prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
@@ -972,5 +1182,5 @@ ggplot(long.df.ex_decay, mapping = aes(x = time_min, y = conc, color = type)) +
 
 # Appendix
 
-```{r ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}
+```{r ref.label=knitr::all_labels(), echo = F, eval = F}
 ```
