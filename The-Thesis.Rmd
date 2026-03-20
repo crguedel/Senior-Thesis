@@ -3,13 +3,13 @@ title: "Senior Thesis"
 author: "Collin Guedel"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  github_document:
-  #bookdown::pdf_document2:
-    #number_sections: False
-    #fig_caption: True
-    #fig_width: 6
-    #fig_height: 4
-         
+  #github_document:
+  bookdown::pdf_document2:
+    number_sections: False
+    fig_caption: True
+    fig_width: 6
+    fig_height: 4
+#          
 abstract: "Human land use, primarily through farming and its resulting land disturbances impacts
 the soil sink of atmospheric hydrogen maintained by soil microbial communities; this thesis’ aim
 is to assess, both through measurements of soil H2 uptake rate and bacterial genomics, what
@@ -83,7 +83,7 @@ TBD
 
 ## Methods
 
-## Soy - Undisturbed
+## Soy - Undisturbed - Long
 
 ```{r old_data_import, eval = FALSE, echo = F}
 df.ex_decay = read_excel("CEE523 Hydrogen Project Data.xlsx", sheet = "No_LitterAlightReplicate_1")
@@ -324,7 +324,7 @@ ggplot(data = all_stats.df, mapping = aes(x = WP_mPa, y = Saturation, color = so
   scale_color_brewer(palette = "Dark2")
 ```
 
-```{r Soy-Undisturbed-14-Day, echo = F}
+```{r Long-Soy-Undisturbed-14, echo = F}
 file_path = paste0(getwd(),"/")
 date = "2026-01-28"
 n_compound = 2
@@ -359,10 +359,9 @@ prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, leve
 
 view(prepped_meta.df)
 
-
 ```
 
-```{r Soy-UD-14 Plots, echo = F}
+```{r Long-Soy-UD Plots, echo = F}
 ggplot(prepped_meta.df, mapping = aes(x = time_offset_mins, y = ppb_dilution_corrected_1, color = Saturation_perc)) +
   geom_point() +
   labs(title = "Undisturbed soybean long acclimation H2 concentration") +
@@ -388,7 +387,7 @@ ggplot(prepped_meta.df, mapping = aes(x = time_offset_mins, y = ppb_dilution_cor
       after_stat(p.value.label),
       sep = "~~~")
       ), parse = TRUE, label.x = "right") +
-  labs(title = "Example of ln linear fit of first order exponential decay") +
+  labs(title = "Undisturbed Soybean Long Raw Data") +
   xlab("time (minutes)") +
   ylab("ln(H2 Concentration [ppb])") +
   theme(legend.position = "bottom")
@@ -414,12 +413,142 @@ ggplot(data = model, aes(x = .fitted, y = .resid)) +
 
 Of note: The fits are really good here, with very small residuals and R^2 values. The linearization seems to be effective without accounting for the asymptotic behavior near the tails, meaning that equilibrium is not sufficiently reached by the end of these incubation experiments within the time frame. I have included the fitting equations in the graph along with the R^2 values - the p values don't mean much because they only compare these lines to a slope of 0, which is obviously out of the question. 
 
-```{r Soy-UD-14-Day Fits, echo = F}
+```{r Long-Soy-UD Fits, echo = F}
 # Define the model formula
 ##yf = asymptote, y0 = initial value, alpha = rate
-decay_eq_root <- ppb_dilution_corrected_1 ~ yf + (air_H_avg/rf1 - yf) * exp(-alpha * time_offset_mins)
+decay_asmp_root <- ppb_dilution_corrected_1 ~ yf + (air_H_avg/rf1 - yf) * exp(-alpha * time_offset_mins)
 #fit <- nls(
-#  decay_eq_root
+#  decay_asmp_root
+#  data = prepped.df,
+#  start = list(yf = 50, alpha = 0.02) #requires a guess
+#)
+
+# Fit the model using nls()
+# Provide starting guesses for parameters (for convergence)
+#fit <- nls(decay_eq_mod, 
+#           data = prepped.df, 
+#          start = list(yf = min(prepped.df$ppb_dilution_corrected_1), 
+#                        y0 = max(data$ppb_dilution_corrected_1), 
+#                        alpha = 0.02))
+# Used website https://douglas-watson.github.io/post/2018-09_exponential_curve_fitting/ for SS
+
+SelfStart = T
+
+# Rooter values - can I make it self start?
+if(SelfStart == F) { #not self-starter (guess, but can root values)
+  nls_fits_by_bottle <- prepped.df %>% 
+    group_by(bottle_id) %>%
+    nest() %>%
+    mutate(
+      fit <- nls(
+        decay_eq_mod, 
+        data = data,
+        start = list(
+          yf = min(data$value),
+          y0 = max(data$value),
+          alpha = 0.1
+          )
+      )
+    )
+}
+
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance), 
+    tidied = map(model, tidy)
+  ) # glance() for model fit statistics
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value) # Select relevant columns
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 600, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+#ggplot graph
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+  
+##IMPORTANT -RSE and AIC for these models!!! ANOVA too - part of this thesis can be to test model validity
+
+## Self-Start Model example
+# Example: Forcing 'a' to be 10 in a SSmodel
+#mySS <- selfStart(
+#  model = ~ a * exp(b * x),
+#  initial = function(mCall, data, LHS) {
+#    # Force a=10 instead of estimating it
+#    value <- c(a = 10, b = 0.5)
+#    value
+#  },
+#  parameters = c("a", "b")
+#)
+#EqRootSS <- selfStart(
+#  model = ~  yf + (y0 - yf) * exp(-k * t)
+#)
+```
+
+```{r Long-Soy-UD Fabian Fits, echo = F}
+# Define the model formula
+##yf = asymptote, y0 = initial value, alpha = rate
+decay_asmp_root <- ppb_dilution_corrected_1 ~ yf + (air_H_avg/rf1 - yf) * exp(-alpha * time_offset_mins)
+
+
+#fit <- nls(
+#  decay_asmp_root
 #  data = prepped.df,
 #  start = list(yf = 50, alpha = 0.02) #requires a guess
 #)
@@ -546,9 +675,9 @@ This nonlinear fit is less interpretable than the linearized fits seen above, be
 
 There are methods that I want to use to seek to address this - the first being a new-to-me method of regression called a robust regression, another being perhaps a background subtraction of the hydrogen background in the nitrogen carrier gas. Most importantly, I think more trial runs will show us how they are behaving at a grander scale and if there are systemic deviations from the assumed linearity of our natural log linearization.
 
-## Soy - Disturbed Center
+## Soy - Disturbed Center - Long
 
-```{r Soy-C-14-Day, echo = F}
+```{r Long-Soy-C, echo = F}
 file_path = paste0(getwd(),"/")
 date = "2026-02-12"
 n_compound = 2
@@ -594,7 +723,7 @@ prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, leve
 view(prepped_meta.df)
 ```
 
-```{r Soy-C-14 Plots, echo = F}
+```{r Long-Soy-C Plots, echo = F}
 ggplot(prepped_meta.df, mapping = aes(x = time_offset_mins, y = ppb_dilution_corrected_1, color = Saturation_perc)) +
   geom_point() +
   labs(title = "Disturbed soybean long acclimation H2 concentration") +
@@ -645,7 +774,7 @@ ggplot(data = model, aes(x = .fitted, y = .resid)) +
   facet_wrap(~bottle_id)
 ```
 
-```{r Soy-C-14-Day Fits, echo = F}
+```{r Long-Soy-C Fits, echo = F}
 #linear fit (classical lm)
 lm_fits_by_bottle <- prepped.df %>%
   group_by(bottle_id) %>%
@@ -715,27 +844,74 @@ qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'poin
   xlab("time (minutes)") +
   ylab("H2 Concentration [ppm]") +
   theme(legend.position = "bottom")
+view(all_st)
 ```
 
-```{r trial summaries}
-all_stats.df$k_norm = -1*all_stats.df$time_offset_mins/all_stats.df$`Mass bottle SOC (g)`
-all_stats.df$alpha_norm = -1*all_stats.df$nls_alpha/all_stats.df$`Mass bottle SOC (g)`
+## Fairgrown Farms
+
+
+```{r Short-Soy-UD, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-09"
+n_compound = 2
+bnames =
+  rep(
+    x = c(
+    "Short-Soy-UD-15-1",
+    "Short-Soy-UD-15-2",
+    "Short-Soy-UD-15-3",
+    "Short-Soy-UD-25-1",
+    "Short-Soy-UD-25-2",
+    "Short-Soy-UD-25-3"
+    ),
+    times = 6
+  )
+num.std = 4 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+import.df <- import.df[-nrow(import.df), ]
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+
+```
+
+## Kinetic Rate Data Summary
+
+```{r trial-summaries, echo = FALSE}
+all_stats.df$k_norm = -1*all_stats.df$time_offset_mins/(all_stats.df$`Mass bottle SOC (g)`*1000)
+all_stats.df$alpha_norm = all_stats.df$nls_alpha/(all_stats.df$`Mass bottle SOC (g)`)
+
+ggplot(all_stats.df, mapping = aes(x = Saturation*100, y = time_offset_mins*-1/1000, color = soil_type)) +
+  geom_point() +
+  labs(title = "Linearization decay constants plotted vs. Saturation") +
+  xlab("% Saturation)") +
+  ylab("Decay constant k (ppm H2/minute)") +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Dark2")
 
 ggplot(all_stats.df, mapping = aes(x = Saturation*100, y = k_norm, color = soil_type)) +
   geom_point() +
   labs(title = "Linearization decay constants, normalized to SOC, plotted vs. Saturation") +
   xlab("% Saturation)") +
-  ylab("Decay constant k (ppb H2/minute/g SOC)") +
+  ylab("Decay constant k (ppm H2/minute/g SOC)") +
   theme(legend.position = "bottom") +
   scale_color_brewer(palette = "Dark2")
 
 ggplot(all_stats.df, mapping = aes(x = Saturation, y = alpha_norm, color = soil_type)) +
   geom_point() +
-  labs(title = "Linearization decay constants, normalized to SOC, plotted vs. Saturation") +
+  labs(title = "NLS decay constants, normalized to SOC, plotted vs. Saturation") +
   xlab("% Saturation)") +
-  ylab("Decay constant k (ppb H2/minute/g SOC)") +
+  ylab("Decay constant k (ppm H2/minute/g SOC)") +
   theme(legend.position = "bottom") +
-  scale_color_brewer(palette = "Dark2")
+  scale_color_brewer(palette = "Dark2") +
+  xlim(0,0.3)
   
 
 ```
@@ -789,6 +965,8 @@ ggplot(long.df.ex_decay, mapping = aes(x = time_min, y = conc, color = type)) +
 ```
 
 ## Conclusion
+
+\newpage
 
 # References
 
