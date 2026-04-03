@@ -1,38 +1,39 @@
 ---
 title: "Senior Thesis"
-author: "Collin Guedel"
+author: "Collin R. Guedel"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
+advisor: "Professor Xinning Zhang"
 output:
   #github_document:
   bookdown::pdf_document2:
+    template: thesis-for-rmd.tex
+    toc: true
+    lof: true
     keep_tex: true
-    extra_dependencies: ["float"]
+    extra_dependencies: ["float","appendix"]
     number_sections: False
     fig_caption: True
     fig_width: 6
     fig_height: 4
-#          
-abstract: "Human land use, primarily through farming and its resulting land disturbances impacts
-the soil sink of atmospheric hydrogen maintained by soil microbial communities; this thesis’ aim
-is to assess, both through measurements of soil H2 uptake rate and bacterial genomics, what
-governs this rate. Based upon preliminary agricultural data that I assess this summer, it
-appears that tilling has a significant impact on agricultural soils’ uptake ; I would like to
-study this further by comparing farming practices and the resultant microbial behaviors
-in comparison to undisturbed, non-agriculture soils."
+    citation_package: natbib
+abstract: "Human land use, primarily through farming and its resulting land disturbances impacts the soil sink of atmospheric hydrogen maintained by soil microbial communities; this thesis’ aim is to assess, both through measurements of soil H2 uptake rate and bacterial genomics, what governs this rate. Based upon preliminary agricultural data that I assess this summer, it appears that tilling has a significant impact on agricultural soils’ uptake ; I would like to study this further by comparing farming practices and the resultant microbial behaviors in comparison to undisturbed, non-agriculture soils."
 # Github PAT - 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
+acknowledgements: "Thanks Mom and Dad!"
 indent: true
 fontsize: 12pt
 bibliography: Senior-Thesis-Zhang.bib
-csl: geophysical-journal-international.csl
+#csl: geophysical-journal-international.csl
 header-includes:
-   - \setlength\parindent{24pt}\setlength{\parskip}{0.0pt plus 1.0pt}
-   - \usepackage{indentfirst}
-   - \usepackage{fvextra}
-   - \usepackage{float}
-   - \usepackage{placeins}
-   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true, breakanywhere=true, commandchars=\\\{\}}
-   - \usepackage{setspace}
-   - \linespread{1.5}
+ - \setlength\parindent{24pt}\setlength{\parskip}{0.0pt plus 1.0pt}   
+ - \usepackage{indentfirst}
+ - \usepackage{fvextra}
+ - \usepackage{float}
+ - \usepackage{placeins}
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true, breakanywhere=true, commandchars=\\\{\}}
+ - \usepackage{setspace}
+ - \linespread{1.5}
+ - \usepackage[nottoc]{tocbibind}
+ - \usepackage{appendix}
 ---
 
 ```{r setup, include=FALSE}
@@ -41,9 +42,10 @@ options(width = 80) # Sets the output width to roughly 80 characters
 knitr::opts_chunk$set(
   tidy.opts = list(width.cutoff = 60),
   tidy = TRUE,
-  echo = TRUE,
+  echo = FALSE,
   warning = TRUE,
   message = TRUE,
+  cache = TRUE,
   fig.align = 'center',
   fig.width = 6,
   fig.height = 4)
@@ -78,38 +80,17 @@ getwd()
 
 \newpage
  
-## Introduction
+# Introduction
 
 TBD
 @sandMultimodelAssessmentGlobal2023 says
 
 
-## Methods
+# Methods
 
-## Soy - Undisturbed - Long
+$[H_2] = [H_2]_{eq} + ([H_2]_0-[H_2]_{eq})e^{-kt}$ 
 
-```{r old_data_import, eval = FALSE, echo = F}
-df.ex_decay = read_excel("CEE523 Hydrogen Project Data.xlsx", sheet = "No_LitterAlightReplicate_1")
-H_one_ppm = 584070.6667
-
-df.ex_decay$H2_Conc_ppm = df.ex_decay$H2_area/H_one_ppm
-H_eq_approx = min(df.ex_decay$H2_Conc_ppm)
-H_eq_approx
-df.ex_decay$ln_conc_origin = 
-  log(df.ex_decay$H2_Conc_ppm) - log(df.ex_decay$H2_Conc_ppm[1])
-df.ex_decay$ln_conc_minus_eq_origin = 
-  -1*log(df.ex_decay$H2_Conc_ppm - H_eq_approx)/log(df.ex_decay$H2_Conc_ppm[1] - H_eq_approx)
-view(df.ex_decay)
-
-long.df.ex_decay = melt(
-  df.ex_decay,
-  id.vars = c("Sampling_Time", "Time_diff_num", "time_point", "time_min", "injection_time", "time_diff_injection_and_sampling_min", "H2_area", "CO_Area", "H2_Conc_ppm"), 
-  variable.name = "type", 
-  value.name = "conc")
-view(long.df.ex_decay)
-```
-
-```{r mergeColumns, echo = F}
+```{r mergeColumns}
 mergeColumns <- function(df) {
   colstoKeep <- grep("\\.x$", names(all_stats.df), value = TRUE)
   colstoRemove <- grep("\\.y$", names(all_stats.df), value = TRUE)
@@ -124,7 +105,7 @@ mergeColumns <- function(df) {
 }
 ```
 
-```{r file_import_func, echo = F}
+```{r file_import_func}
 #Template: file <- "C:/Users/crgue_ggna89k/OneDrive - Princeton University/Undergraduate Research/Thesis Files/Thesis Rmd Doc/2026-01-28/2026-01-28/2026-01-28.csv"; data <- read.csv(file)
 
 import_rcp_csv <- function(file_path, date, n_compound) {
@@ -234,7 +215,7 @@ return(data)
 #file <- "C:/Users/crgue_ggna89k/OneDrive - Princeton University/Undergraduate Research/Thesis Files/Thesis Rmd Doc/2026-01-28/2026-01-28/2026-01-28.csv"
 ```
 
-```{r rcp_csv_preplot_func, echo = F}
+```{r rcp_csv_preplot_func}
 ## Generalized formula for any order of bottles - makes repeater above semi-obsolete
 rcp_csv_preplot <- function(df, bottle_names, num_calib, num_air) {
   if(length(bottle_names) != (nrow(df)-(num_calib+num_air))){
@@ -312,7 +293,11 @@ rcp_csv_preplot <- function(df, bottle_names, num_calib, num_air) {
 }
 ```
 
-```{r soil_metadata, echo = F}
+```{r combine_trials_and_metadata}
+```
+
+
+```{r soil_metadata}
 meta.df <- 
   read_excel("Farm Soils Data.xlsx", 
     sheet = "Trial Metadata",
@@ -324,6 +309,115 @@ ggplot(data = all_stats.df, mapping = aes(x = WP_mPa, y = Saturation, color = so
   geom_point() +
   scale_color_brewer(palette = "Dark2")
 ```
+
+
+# Results
+
+## Summer Data
+
+```{r summer_2025_data_import, eval = T, echo = F}
+df.fgf_2025 = read_excel("Copy of Summer Organic Farm Soils Data.xlsx", sheet = "H2 uptake rates")
+H_one_ppm = 506515 #From Summer I think?
+H_air = 265124.8 #From 03/22/2026
+H_air_ppm = H_air/H_one_ppm
+view(df.fgf_2025)
+df.fgf_2025 = df.fgf_2025[1:(nrow(df.fgf_2025)-8),]
+
+df.fgf_2025_proc = data.frame(
+  time_offset_mins = numeric(),
+  area_1 = numeric(),
+  ppb_dilution_corrected_1 = numeric(),
+  bottle_id = character()
+)
+current_bottle = ""
+for(i in 1:nrow(df.fgf_2025)) {
+  if((!is.na(df.fgf_2025$`sampling Time`[i]) || (!is.na(df.fgf_2025$`time (min)`[i])))) {
+    if(!is.na(df.fgf_2025$`sampling Time`[i])) {
+      current_bottle = df.fgf_2025$`sampling Time`[i]
+    }
+    else {
+      if (df.fgf_2025$`time (min)`[i] >= 0 ) {
+        new_row = data.frame(
+          time_offset_mins = df.fgf_2025$`time (min)`[i],
+          bottle_id = current_bottle,
+          area_1 = df.fgf_2025$`H2 area`[i],
+          ppb_dilution_corrected_1 = df.fgf_2025$`dilution corrected`[i]*1000
+        )
+        df.fgf_2025_proc <- rbind(df.fgf_2025_proc, new_row)
+      }
+    } 
+  }
+}
+df.fgf_2025_proc$ppb_dilution_corrected_1_ln = log(df.fgf_2025_proc$ppb_dilution_corrected_1)
+view(df.fgf_2025_proc)
+
+df.fgf_2025_specs <- read_excel("Copy of Summer Organic Farm Soils Data.xlsx", sheet = "final WP and GM")
+
+df.fgf_2025_specs$bottle_id <- df.fgf_2025_specs$`sample ID`
+view(df.fgf_2025_specs)
+
+df.fgf_2025_complete <- left_join(df.fgf_2025_proc, df.fgf_2025_specs, by = "bottle_id")
+df.fgf_2025_complete <- mergeColumns(df.fgf_2025_complete)
+df.fgf_2025_complete$time_offset_mins <- as.numeric(df.fgf_2025_complete$time_offset_mins)
+df.fgf_2025_complete$Saturation_perc <- round(as.numeric(df.fgf_2025_complete$`%saturation`), digits=2)
+df.fgf_2025_complete$Saturation_perc <- ordered(df.fgf_2025_complete$Saturation_perc, levels = sort(unique(df.fgf_2025_complete$Saturation_perc)))
+
+view(df.fgf_2025_complete)
+```
+
+```{r summer_plots, echo = F}
+ggplot(df.fgf_2025_complete, mapping = aes(x = time_offset_mins, y = ppb_dilution_corrected_1, color = bottle_id)) +
+  geom_point() +
+  labs(title = "Undisturbed soybean long acclimation H2 concentration") +
+  ylab("[H2] ppb") +
+  theme(legend.position = "bottom") + 
+  scale_x_continuous(name = "time (minutes)", breaks = c(100, 150, 200, 250, 300, 350))
+
+ggplot(df.fgf_2025_complete, mapping = aes(x = time_offset_mins, y = ppb_dilution_corrected_1_ln, color = Saturation_perc)) +
+  geom_point() +
+  labs(title = "Undisturbed soybean long acclimation H2 concentration, linearized") +
+  xlab("time (minutes)") +
+  ylab("ln[H2] ppb") +
+  theme(legend.position = "bottom") + 
+  scale_x_continuous(breaks = c(100, 150, 200, 250, 300, 350))
+
+ggplot(df.fgf_2025_complete, mapping = aes(x = time_offset_mins, y = ppb_dilution_corrected_1_ln, color = Saturation_perc)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F) +
+  stat_poly_eq(
+    formula = y ~ x,
+    aes(label = paste(
+      after_stat(eq.label),
+      after_stat(rr.label),
+      after_stat(p.value.label),
+      sep = "~~~")
+      ), parse = TRUE, label.x = "right") +
+  labs(title = "Undisturbed Soybean Long Raw Data") +
+  xlab("time (minutes)") +
+  ylab("ln(H2 Concentration [ppb])") +
+  theme(legend.position = "bottom") + 
+  scale_x_continuous(breaks = c(100, 150, 200, 250, 300, 350))
+  
+# Residuals vs Fitted
+
+# Ensure 'bottle_id' is treated as a categorical variable (factor)
+df.fgf_2025_complete$bottle_id <- as.factor(df.fgf_2025_complete$bottle_id)
+
+model <- lm(ppb_dilution_corrected_1_ln ~ time_offset_mins + bottle_id, data = df.fgf_2025_complete)
+resid <- df.fgf_2025_complete %>%
+  mutate(fitted_values = fitted(model),
+         residuals = residuals(model))
+#aug_model <- augment(model)
+ggplot(data = model, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(title = "Residuals Plots",
+       x = "Fitted Values",
+       y = "Residuals") +
+  facet_wrap(~bottle_id)
+```
+
+## Soy - Undisturbed - Long
 
 ```{r Long-Soy-UD, echo = F}
 file_path = paste0(getwd(),"/")
@@ -881,6 +975,78 @@ prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, leve
 
 ```
 
+```{r Short-Soy-UD Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+```
+
 ```{r Short-Soy-C, echo = F}
 file_path = paste0(getwd(),"/")
 date = "2026-03-10"
@@ -912,6 +1078,78 @@ prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
 prepped_meta.df <- mergeColumns(prepped_meta.df)
 prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
 prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+```
+
+```{r Short-Soy-C Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
 ```
 
 ## Fairgrown Farms
@@ -1005,6 +1243,78 @@ prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, leve
 
 ```
 
+```{r FGF-OR Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+```
+
 ```{r FGF-RO-N, echo = F}
 file_path = paste0(getwd(),"/")
 date = "2026-03-15"
@@ -1012,39 +1322,39 @@ n_compound = 2
 bnames = c(
   rep(
     x = c(
-      "FGF-OR-15-1",
-      "FGF-OR-15-2",
-      "FGF-OR-15-3",
-      "FGF-OR-25-1",
-      "FGF-OR-25-2",
-      "FGF-OR-25-3"
+      "FGF-RO-15-1",
+      "FGF-RO-15-2",
+      "FGF-RO-15-3",
+      "FGF-RO-25-1",
+      "FGF-RO-25-2",
+      "FGF-RO-25-3"
     ),
     times = 4
   ),
-    "FGF-OR-25-1",
-    "FGF-OR-25-2",
-    "FGF-OR-25-3",
-    "FGF-OR-15-1",
-    "FGF-OR-15-2",
-    "FGF-OR-15-3",
-    "FGF-OR-25-1",
-    "FGF-OR-25-2",
-    "FGF-OR-25-3",
-    "FGF-OR-25-1",
-    "FGF-OR-25-2",
-    "FGF-OR-25-3",
-    "FGF-OR-15-1",
-    "FGF-OR-15-2",
-    "FGF-OR-15-3",
-    "FGF-OR-25-1",
-    "FGF-OR-25-2",
-    "FGF-OR-25-3",
-    "FGF-OR-15-1",
-    "FGF-OR-15-2",
-    "FGF-OR-15-3",
-    "FGF-OR-25-1",
-    "FGF-OR-25-2",
-    "FGF-OR-25-3"
+    "FGF-RO-25-1",
+    "FGF-RO-25-2",
+    "FGF-RO-25-3",
+    "FGF-RO-15-1",
+    "FGF-RO-15-2",
+    "FGF-RO-15-3",
+    "FGF-RO-25-1",
+    "FGF-RO-25-2",
+    "FGF-RO-25-3",
+    "FGF-RO-25-1",
+    "FGF-RO-25-2",
+    "FGF-RO-25-3",
+    "FGF-RO-15-1",
+    "FGF-RO-15-2",
+    "FGF-RO-15-3",
+    "FGF-RO-25-1",
+    "FGF-RO-25-2",
+    "FGF-RO-25-3",
+    "FGF-RO-15-1",
+    "FGF-RO-15-2",
+    "FGF-RO-15-3",
+    "FGF-RO-25-1",
+    "FGF-RO-25-2",
+    "FGF-RO-25-3"
 )
 num.std = 0 # number of starter calibration samples
 num.air = 5 # Number of starter air samples
@@ -1059,6 +1369,78 @@ prepped_meta.df <- mergeColumns(prepped_meta.df)
 prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
 prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
 
+```
+
+```{r FGF-RO Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
 ```
 
 ```{r FGF-SOD-N, echo = F}
@@ -1089,7 +1471,457 @@ prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
 prepped_meta.df <- mergeColumns(prepped_meta.df)
 prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
 prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+```
 
+```{r FGF-SOD Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+```
+
+```{r FGF-CO-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-22"
+n_compound = 2
+bnames =c(
+  rep(
+    x = c(
+    "FGF-CORN-15-1",
+    "FGF-CORN-15-2",
+    "FGF-CORN-15-3",
+    "FGF-CORN-25-1",
+    "FGF-CORN-25-2",
+    "FGF-CORN-25-3"
+    ),
+    times = 5
+  ),
+  rep(
+    x= c(
+      "FGF-CORN-15-1",
+      "FGF-CORN-15-2",
+      "FGF-CORN-15-3"
+    ),
+    times = 4
+  ),
+  "FGF-CORN-15-1",
+  "FGF-CORN-15-1",
+  rep("FGF-CORN-15-3",times = 4)
+  )
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+rf_1 = mean(import.df$area_1[(6:10)])
+import.df <- import.df[-(6:10),]
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+```
+
+```{r FGF-CO-N Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+```
+
+```{r FGF-FBW-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-25"
+n_compound = 2
+bnames = c(
+  rep(
+    x = c(
+    "FGF-FBW-15-1",
+    "FGF-FBW-15-2",
+    "FGF-FBW-15-3",
+    "FGF-FBW-25-1",
+    "FGF-FBW-25-2",
+    "FGF-FBW-25-3"
+    ),
+    times = 3
+  ),
+  "FGF-FBW-25-1",
+  "FGF-FBW-25-2",
+  "FGF-FBW-25-3",
+  rep(x = c(
+    "FGF-FBW-15-1",
+    "FGF-FBW-15-2",
+    "FGF-FBW-15-3",
+    "FGF-FBW-25-1",
+    "FGF-FBW-25-2",
+    "FGF-FBW-25-3"),
+    times = 2),
+  rep(x = c(
+    "FGF-FBW-25-1",
+    "FGF-FBW-25-2",
+    "FGF-FBW-25-3"
+    ),
+  times = 3
+    ),
+  "FGF-FBW-15-2",
+  rep(x = "FGF-FBW-15-3",times = 8)
+  )
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+
+```
+
+```{r FGF-FBW-N Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
+```
+
+```{r FGF-SUN-N, echo = F}
+file_path = paste0(getwd(),"/")
+date = "2026-03-26"
+n_compound = 2
+bnames = c(
+  rep(
+    x = c(
+    "FGF-SUN-15-1",
+    "FGF-SUN-15-2",
+    "FGF-SUN-15-3",
+    "FGF-SUN-25-1",
+    "FGF-SUN-25-2",
+    "FGF-SUN-25-3"
+    ),
+    times = 3
+  ),
+  rep(x = c(
+    "FGF-SUN-25-1",
+    "FGF-SUN-25-2",
+    "FGF-SUN-25-3",
+    "FGF-SUN-15-1",
+    "FGF-SUN-15-2",
+    "FGF-SUN-15-3",
+    "FGF-SUN-25-1",
+    "FGF-SUN-25-2",
+    "FGF-SUN-25-3"
+    ),
+  times = 2
+  ),
+  #"FGF-SUN-25-3",
+  #"FGF-SUN-25-2",
+  #"FGF-SUN-25-3",
+  "FGF-SUN-25-2",
+  "FGF-SUN-25-3",
+  "FGF-SUN-25-1",
+  "FGF-SUN-15-1",
+  "FGF-SUN-15-2",
+  "FGF-SUN-15-3",
+  "FGF-SUN-25-3",
+  "FGF-SUN-15-1",
+  "FGF-SUN-15-2",
+  "FGF-SUN-15-3",
+  "FGF-SUN-25-3",
+  "FGF-SUN-15-1",
+  "FGF-SUN-15-2",
+  "FGF-SUN-15-3",
+  "FGF-SUN-15-1",
+  "FGF-SUN-15-2",
+  "FGF-SUN-15-3"
+)
+num.std = 0 # number of starter calibration samples
+num.air = 5 # Number of starter air samples
+
+import.df <- import_rcp_csv(file_path, date, n_compound) #import csv from above method
+import.df <- import.df[-(1:14),]
+
+prepped.df = rcp_csv_preplot(import.df, bnames, num.std, num.air)
+prepped.df$ppb_dilution_corrected_1_ln = log(prepped.df$ppb_dilution_corrected_1)
+
+prepped_meta.df <- left_join(prepped.df, meta.df, by = "bottle_id")
+prepped_meta.df <- mergeColumns(prepped_meta.df)
+prepped_meta.df$Saturation_perc <- round(100*prepped_meta.df$Saturation, digits = 2)
+prepped_meta.df$Saturation_perc <- ordered(prepped_meta.df$Saturation_perc, levels = sort(unique(prepped_meta.df$Saturation_perc)))
+```
+
+```{r FGF-SUN-N Fits, echo = F}
+#linear fit (classical lm)
+lm_fits_by_bottle <- prepped.df %>%
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~lm(ppb_dilution_corrected_1 ~ time_offset_mins, data = .x)),
+    results = map(model, glance),
+    tidied = map(model, tidy)
+    )
+lm_grouped_fit_stats <- lm_fits_by_bottle %>%
+  unnest(results) %>%
+  dplyr::select(bottle_id, r.squared, adj.r.squared, AIC, p.value)
+lm_tidied <- lm_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(term, estimate) %>%
+  spread(term, estimate)
+
+# Run selfstarting function (unrooted, no guessing)
+nls_fits_by_bottle <- prepped.df %>% 
+  group_by(bottle_id) %>%
+  nest() %>%
+  mutate(
+    fit = map(data, ~nls(
+      ppb_dilution_corrected_1~SSasymp(time_offset_mins, yf, y0, log_alpha),
+      data = .,
+      start = c(yf = 0, y0 = 700, log_alpha = 0.001)
+      )),
+    tidied = map(fit, tidy),
+    augmented = map(fit, augment),
+    coefs = map(fit, coef),
+    results = map(fit, glance)
+)
+#tabular output
+coefficients <- nls_fits_by_bottle %>%
+  unnest(tidied) %>%
+  dplyr::select(bottle_id, term, estimate) %>%
+  spread(term, estimate) %>%
+  mutate(nls_alpha = exp(log_alpha))
+results <- nls_fits_by_bottle %>%
+  dplyr::select(bottle_id, results) %>%
+  unnest(results)
+results <- results %>%
+  rename(sigma_nls = sigma,
+        isConv_nls = isConv,
+        finTol_nls = finTol,
+        logLik_nls = logLik,
+        AIC_nls = AIC,
+        BIC_nls = BIC,
+        deviance_nls = deviance,
+        df.residual_nls = df.residual,
+        nobs_nls = nobs
+        )
+
+all_stats.df <- full_join(all_stats.df, lm_tidied, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, lm_grouped_fit_stats, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, coefficients, by = "bottle_id")
+all_stats.df <- full_join(all_stats.df, results, by = "bottle_id")
+all_stats.df <- mergeColumns(all_stats.df)
+view(all_stats.df)
+
+augmented <- nls_fits_by_bottle %>% 
+  unnest(augmented)
+  
+qplot(time_offset_mins, ppb_dilution_corrected_1, data = augmented, geom = 'point', colour = bottle_id) +
+  geom_line(aes(y=.fitted)) +
+  labs(title = "Nonlinear Least Squares Fit of data") +
+  xlab("time (minutes)") +
+  ylab("H2 Concentration [ppm]") +
+  theme(legend.position = "bottom")
 ```
 
 ## Kinetic Rate Data Summary
@@ -1127,9 +1959,9 @@ ggplot(all_stats.df, mapping = aes(x = Saturation, y = alpha_norm, color = soil_
 ```
 
 ```{r lin_reg, eval=FALSE, include=FALSE}
-y0 = df.ex_decay$ln_conc_origin
-y1 = long.df.ex_decay$conc[15:28]
-x = df.ex_decay$time_min
+y0 = df.fgf_2025$ln_conc_origin
+y1 = long.df.fgf_2025$conc[15:28]
+x = df.fgf_2025$time_min
 model <- lm(y0~x)
 model <- lm(y1~x)
 
@@ -1149,38 +1981,32 @@ names(model)
 names(summary(model))
 ```
 
-## Results
+
 
 Include draft work from CEE523 on equation writing.
 
-```{r plots, echo=F, eval = F}
-ggplot(df.ex_decay, mapping = aes(x = time_min, y = H2_Conc_ppm)) +
-  geom_point() +
-  labs(title = "Example of first order exponential decay") +
-  xlab("time (minutes)") +
-  ylab("H2 Concentration [ppm]") +
-  theme(legend.position = "bottom")
-
-ggplot(long.df.ex_decay, mapping = aes(x = time_min, y = conc, color = type)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(title = "Example of ln linearization of first order exponential decay") +
-  xlab("time (minutes)") +
-  ylab("ln(H2 Concentration [ppm])") +
-  theme(legend.position = "bottom") +
-  scale_y_continuous(limits = c(-5, 0)) +
-  scale_x_continuous(limits = c(0, 23))
 
 
-```
+# Discussion
 
-## Conclusion
+# Conclusion
 
-\newpage
+<div id="refs"></div>
 
-# References
 
-# Appendix
+\clearpage
+
+<!-- \AtEndDocument{\pagebreak -->
+
+\appendix
+\appendixpage
+\addappheadtotoc
+
+# Supplementary Information
+
+# Code Appendix
+code will go here eventually
 
 ```{r ref.label=knitr::all_labels(), echo = F, eval = F}
 ```
+<!-- } -->

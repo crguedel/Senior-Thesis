@@ -1,0 +1,1304 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s23">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#DCDCFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s24">
+    <Font x:Family="Swiss" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s25">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#DCDCFF" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="hh:mm:ss.0"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table>
+  <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="10" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="11" ss:AutoFitWidth="0" ss:Width="120.0"/>
+  <Column ss:Index="12" ss:AutoFitWidth="0" ss:Width="120.0"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s23"><Data ss:Type="String">#</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Sample ID</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">User name</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Date and Time</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Nucleic Acid</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Unit</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">A260 (Abs)</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">A280 (Abs)</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">260/280</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">260/230</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Sample Type</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Factor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">106</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:03:19 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.019</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.030</Data></Cell>
+    <Cell><Data ss:Type="Number">0.62</Data></Cell>
+    <Cell><Data ss:Type="Number">0.57</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">107</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-2-Vortex_test_2_ul</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:05:26 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">659.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">13.181</Data></Cell>
+    <Cell><Data ss:Type="Number">6.955</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">2.06</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">108</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-2-Vortex_test_2_ul</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:06:03 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">636.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">12.728</Data></Cell>
+    <Cell><Data ss:Type="Number">6.725</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">2.06</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">109</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-2-Vortex_test_2_ul</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:07:27 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">667.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">13.343</Data></Cell>
+    <Cell><Data ss:Type="Number">7.094</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">2.02</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">110</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-3-Vortex_test_2_ul</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:08:47 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">575.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">11.519</Data></Cell>
+    <Cell><Data ss:Type="Number">6.089</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.48</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">111</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-3-Vortex_test_2_ul</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:09:21 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">576.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">11.539</Data></Cell>
+    <Cell><Data ss:Type="Number">6.108</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.47</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">112</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:13:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.003</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.010</Data></Cell>
+    <Cell><Data ss:Type="Number">0.26</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.08</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">113</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SF-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:15:44 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">148.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.962</Data></Cell>
+    <Cell><Data ss:Type="Number">1.564</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.60</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">114</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SF-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:16:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">132.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.653</Data></Cell>
+    <Cell><Data ss:Type="Number">1.384</Data></Cell>
+    <Cell><Data ss:Type="Number">1.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.25</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">115</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SF-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:17:21 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">171.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.438</Data></Cell>
+    <Cell><Data ss:Type="Number">1.780</Data></Cell>
+    <Cell><Data ss:Type="Number">1.93</Data></Cell>
+    <Cell><Data ss:Type="Number">0.19</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">116</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RM-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:18:54 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">287.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.753</Data></Cell>
+    <Cell><Data ss:Type="Number">3.032</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.47</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">117</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RM-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:19:30 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">280.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.613</Data></Cell>
+    <Cell><Data ss:Type="Number">2.966</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.08</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">118</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RM-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:20:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">271.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.422</Data></Cell>
+    <Cell><Data ss:Type="Number">2.852</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">119</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:21:37 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">245.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.904</Data></Cell>
+    <Cell><Data ss:Type="Number">2.580</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.18</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">120</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:22:19 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">201.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.038</Data></Cell>
+    <Cell><Data ss:Type="Number">2.140</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.17</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">121</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:22:57 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">182.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.648</Data></Cell>
+    <Cell><Data ss:Type="Number">1.916</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.38</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">122</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:24:27 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">197.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.940</Data></Cell>
+    <Cell><Data ss:Type="Number">2.080</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.10</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">123</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:25:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">172.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.444</Data></Cell>
+    <Cell><Data ss:Type="Number">1.816</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.78</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">124</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:26:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">246.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.922</Data></Cell>
+    <Cell><Data ss:Type="Number">2.604</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.04</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">125</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:28:01 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">0.012</Data></Cell>
+    <Cell><Data ss:Type="Number">0.003</Data></Cell>
+    <Cell><Data ss:Type="Number">4.16</Data></Cell>
+    <Cell><Data ss:Type="Number">0.23</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">126</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:29:37 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">619.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">12.395</Data></Cell>
+    <Cell><Data ss:Type="Number">6.572</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.71</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">127</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:30:44 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">580.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">11.605</Data></Cell>
+    <Cell><Data ss:Type="Number">6.141</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.46</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">128</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:31:33 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">587.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">11.742</Data></Cell>
+    <Cell><Data ss:Type="Number">6.232</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.46</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">129</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:32:37 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">671.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">13.436</Data></Cell>
+    <Cell><Data ss:Type="Number">7.140</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">2.01</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">130</Data></Cell>
+    <Cell><Data ss:Type="String">MF-AS-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:33:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">97.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">1.956</Data></Cell>
+    <Cell><Data ss:Type="Number">1.036</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.39</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">131</Data></Cell>
+    <Cell><Data ss:Type="String">MF-AS-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:34:19 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">143.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.859</Data></Cell>
+    <Cell><Data ss:Type="Number">1.501</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.20</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">132</Data></Cell>
+    <Cell><Data ss:Type="String">MF-AS-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:35:02 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">149.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.995</Data></Cell>
+    <Cell><Data ss:Type="Number">1.577</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">133</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:36:29 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">207.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.158</Data></Cell>
+    <Cell><Data ss:Type="Number">2.197</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.10</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">134</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:36:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">263.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.273</Data></Cell>
+    <Cell><Data ss:Type="Number">2.773</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.62</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">135</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:37:42 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">226.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.530</Data></Cell>
+    <Cell><Data ss:Type="Number">2.393</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.11</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">136</Data></Cell>
+    <Cell><Data ss:Type="String">MF-CH-20-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:38:44 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">62.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">1.242</Data></Cell>
+    <Cell><Data ss:Type="Number">0.646</Data></Cell>
+    <Cell><Data ss:Type="Number">1.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.50</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">137</Data></Cell>
+    <Cell><Data ss:Type="String">MF-CH-20-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:39:20 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">101.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.035</Data></Cell>
+    <Cell><Data ss:Type="Number">1.087</Data></Cell>
+    <Cell><Data ss:Type="Number">1.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.76</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">138</Data></Cell>
+    <Cell><Data ss:Type="String">MF-CH-20-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:40:00 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">91.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">1.824</Data></Cell>
+    <Cell><Data ss:Type="Number">0.973</Data></Cell>
+    <Cell><Data ss:Type="Number">1.87</Data></Cell>
+    <Cell><Data ss:Type="Number">1.62</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">139</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:47:47 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">0.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">0.003</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.017</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.17</Data></Cell>
+    <Cell><Data ss:Type="Number">0.14</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">140</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:49:21 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">447.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">8.947</Data></Cell>
+    <Cell><Data ss:Type="Number">4.604</Data></Cell>
+    <Cell><Data ss:Type="Number">1.94</Data></Cell>
+    <Cell><Data ss:Type="Number">1.72</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">141</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:50:23 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">574.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">11.494</Data></Cell>
+    <Cell><Data ss:Type="Number">5.936</Data></Cell>
+    <Cell><Data ss:Type="Number">1.94</Data></Cell>
+    <Cell><Data ss:Type="Number">1.96</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">142</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:51:10 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">453.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.063</Data></Cell>
+    <Cell><Data ss:Type="Number">4.650</Data></Cell>
+    <Cell><Data ss:Type="Number">1.95</Data></Cell>
+    <Cell><Data ss:Type="Number">2.04</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">143</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:52:37 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">203.3</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.066</Data></Cell>
+    <Cell><Data ss:Type="Number">2.420</Data></Cell>
+    <Cell><Data ss:Type="Number">1.68</Data></Cell>
+    <Cell><Data ss:Type="Number">1.43</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">144</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:53:17 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">348.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">6.964</Data></Cell>
+    <Cell><Data ss:Type="Number">3.575</Data></Cell>
+    <Cell><Data ss:Type="Number">1.95</Data></Cell>
+    <Cell><Data ss:Type="Number">1.74</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">145</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:53:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">445.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">8.911</Data></Cell>
+    <Cell><Data ss:Type="Number">4.590</Data></Cell>
+    <Cell><Data ss:Type="Number">1.94</Data></Cell>
+    <Cell><Data ss:Type="Number">1.38</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">146</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-UD-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:54:28 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">461.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.235</Data></Cell>
+    <Cell><Data ss:Type="Number">4.760</Data></Cell>
+    <Cell><Data ss:Type="Number">1.94</Data></Cell>
+    <Cell><Data ss:Type="Number">2.04</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">147</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:55:33 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">133.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.670</Data></Cell>
+    <Cell><Data ss:Type="Number">1.389</Data></Cell>
+    <Cell><Data ss:Type="Number">1.92</Data></Cell>
+    <Cell><Data ss:Type="Number">0.77</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">148</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:56:15 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">207.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.153</Data></Cell>
+    <Cell><Data ss:Type="Number">2.128</Data></Cell>
+    <Cell><Data ss:Type="Number">1.95</Data></Cell>
+    <Cell><Data ss:Type="Number">1.06</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">149</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:56:46 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">169.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.389</Data></Cell>
+    <Cell><Data ss:Type="Number">1.758</Data></Cell>
+    <Cell><Data ss:Type="Number">1.93</Data></Cell>
+    <Cell><Data ss:Type="Number">1.46</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">150</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:58:19 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">122.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.450</Data></Cell>
+    <Cell><Data ss:Type="Number">1.268</Data></Cell>
+    <Cell><Data ss:Type="Number">1.93</Data></Cell>
+    <Cell><Data ss:Type="Number">1.47</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">151</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:59:09 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">173.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.467</Data></Cell>
+    <Cell><Data ss:Type="Number">1.777</Data></Cell>
+    <Cell><Data ss:Type="Number">1.95</Data></Cell>
+    <Cell><Data ss:Type="Number">1.93</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">152</Data></Cell>
+    <Cell><Data ss:Type="String">SOY-C-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 10:59:50 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">163.3</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.265</Data></Cell>
+    <Cell><Data ss:Type="Number">1.693</Data></Cell>
+    <Cell><Data ss:Type="Number">1.93</Data></Cell>
+    <Cell><Data ss:Type="Number">1.05</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">153</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:00:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.008</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.022</Data></Cell>
+    <Cell><Data ss:Type="Number">0.38</Data></Cell>
+    <Cell><Data ss:Type="Number">-6.88</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">154</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:01:58 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">274.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.497</Data></Cell>
+    <Cell><Data ss:Type="Number">2.896</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.02</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">155</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:02:48 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">245.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.910</Data></Cell>
+    <Cell><Data ss:Type="Number">2.595</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.84</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">156</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:03:23 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">192.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.854</Data></Cell>
+    <Cell><Data ss:Type="Number">2.048</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.75</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">157</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:04:20 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">225.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.510</Data></Cell>
+    <Cell><Data ss:Type="Number">2.374</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">2.08</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">158</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:04:47 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">258.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.173</Data></Cell>
+    <Cell><Data ss:Type="Number">2.741</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.95</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">159</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-OR-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:05:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">237.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.749</Data></Cell>
+    <Cell><Data ss:Type="Number">2.496</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">2.01</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">160</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:08:37 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">142.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.853</Data></Cell>
+    <Cell><Data ss:Type="Number">1.517</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.31</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">161</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:09:25 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">144.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.883</Data></Cell>
+    <Cell><Data ss:Type="Number">1.535</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.45</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">162</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:10:42 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">146.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.933</Data></Cell>
+    <Cell><Data ss:Type="Number">1.546</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.67</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">163</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:11:18 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">223.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.477</Data></Cell>
+    <Cell><Data ss:Type="Number">2.347</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.73</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">164</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:12:12 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">153.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.073</Data></Cell>
+    <Cell><Data ss:Type="Number">1.612</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.73</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">165</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:12:58 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">250.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.004</Data></Cell>
+    <Cell><Data ss:Type="Number">2.627</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.79</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">166</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:13:45 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">153.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.062</Data></Cell>
+    <Cell><Data ss:Type="Number">1.611</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.69</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">167</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-RO-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:14:59 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">-1.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.020</Data></Cell>
+    <Cell><Data ss:Type="Number">-0.036</Data></Cell>
+    <Cell><Data ss:Type="Number">0.57</Data></Cell>
+    <Cell><Data ss:Type="Number">0.73</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">168</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:15:28 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">1.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">0.036</Data></Cell>
+    <Cell><Data ss:Type="Number">0.015</Data></Cell>
+    <Cell><Data ss:Type="Number">2.35</Data></Cell>
+    <Cell><Data ss:Type="Number">0.55</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">169</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:18:58 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">483.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.663</Data></Cell>
+    <Cell><Data ss:Type="Number">5.073</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">0.81</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">170</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:19:38 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">496.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.936</Data></Cell>
+    <Cell><Data ss:Type="Number">5.223</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.27</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">171</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:20:15 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">478.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.561</Data></Cell>
+    <Cell><Data ss:Type="Number">5.041</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.30</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">172</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:21:28 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">494.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.893</Data></Cell>
+    <Cell><Data ss:Type="Number">5.204</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.36</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">173</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:22:00 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">506.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">10.119</Data></Cell>
+    <Cell><Data ss:Type="Number">5.303</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">174</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SOD-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:22:34 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">460.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">9.201</Data></Cell>
+    <Cell><Data ss:Type="Number">4.815</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.33</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">175</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:25:15 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">248.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.971</Data></Cell>
+    <Cell><Data ss:Type="Number">2.608</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">176</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:25:41 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">213.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.274</Data></Cell>
+    <Cell><Data ss:Type="Number">2.252</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.33</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">177</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:26:45 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">178.1</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.562</Data></Cell>
+    <Cell><Data ss:Type="Number">1.862</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">0.58</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">178</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:27:56 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">275.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.509</Data></Cell>
+    <Cell><Data ss:Type="Number">2.890</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.05</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">179</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:29:09 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">183.3</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.666</Data></Cell>
+    <Cell><Data ss:Type="Number">1.928</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.53</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">180</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-CO-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:30:08 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">248.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.970</Data></Cell>
+    <Cell><Data ss:Type="Number">2.611</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.43</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">181</Data></Cell>
+    <Cell><Data ss:Type="String">C6 Blank</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:31:49 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">1.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">0.038</Data></Cell>
+    <Cell><Data ss:Type="Number">0.000</Data></Cell>
+    <Cell><Data ss:Type="Number">-109.29</Data></Cell>
+    <Cell><Data ss:Type="Number">3.05</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">182</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:33:51 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">284.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">5.679</Data></Cell>
+    <Cell><Data ss:Type="Number">2.981</Data></Cell>
+    <Cell><Data ss:Type="Number">1.91</Data></Cell>
+    <Cell><Data ss:Type="Number">1.32</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">183</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:34:20 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">246.6</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">4.933</Data></Cell>
+    <Cell><Data ss:Type="Number">2.608</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.47</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">184</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:35:12 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">195.9</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.918</Data></Cell>
+    <Cell><Data ss:Type="Number">2.088</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.00</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">185</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:35:46 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">175.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.513</Data></Cell>
+    <Cell><Data ss:Type="Number">1.870</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.83</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">186</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:36:31 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">112.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.247</Data></Cell>
+    <Cell><Data ss:Type="Number">1.194</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">0.56</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">187</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-FBW-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:37:13 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">187.0</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.739</Data></Cell>
+    <Cell><Data ss:Type="Number">1.967</Data></Cell>
+    <Cell><Data ss:Type="Number">1.90</Data></Cell>
+    <Cell><Data ss:Type="Number">1.41</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">188</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-15-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:37:56 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">135.7</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.714</Data></Cell>
+    <Cell><Data ss:Type="Number">1.440</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.13</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">189</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-15-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:38:25 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">126.2</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.523</Data></Cell>
+    <Cell><Data ss:Type="Number">1.351</Data></Cell>
+    <Cell><Data ss:Type="Number">1.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.96</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">190</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-15-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:39:03 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">107.4</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.147</Data></Cell>
+    <Cell><Data ss:Type="Number">1.142</Data></Cell>
+    <Cell><Data ss:Type="Number">1.88</Data></Cell>
+    <Cell><Data ss:Type="Number">1.46</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">191</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-25-1</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:39:48 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">159.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.196</Data></Cell>
+    <Cell><Data ss:Type="Number">1.688</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">1.26</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">192</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-25-2</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:40:41 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">140.5</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">2.810</Data></Cell>
+    <Cell><Data ss:Type="Number">1.501</Data></Cell>
+    <Cell><Data ss:Type="Number">1.87</Data></Cell>
+    <Cell><Data ss:Type="Number">0.82</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">193</Data></Cell>
+    <Cell><Data ss:Type="String">FGF-SUN-25-3</Data></Cell>
+    <Cell><Data ss:Type="String">NanoDrop</Data></Cell>
+    <Cell><Data ss:Type="String">3/30/2026 11:41:12 PM</Data></Cell>
+    <Cell><Data ss:Type="Number">189.8</Data></Cell>
+    <Cell><Data ss:Type="String">ng/µl</Data></Cell>
+    <Cell><Data ss:Type="Number">3.797</Data></Cell>
+    <Cell><Data ss:Type="Number">2.011</Data></Cell>
+    <Cell><Data ss:Type="Number">1.89</Data></Cell>
+    <Cell><Data ss:Type="Number">0.97</Data></Cell>
+    <Cell><Data ss:Type="String">DNA</Data></Cell>
+    <Cell><Data ss:Type="Number">50.00</Data></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

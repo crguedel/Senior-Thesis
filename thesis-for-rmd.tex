@@ -1,0 +1,185 @@
+\documentclass[11pt]{report}
+\clubpenalty=10000
+\widowpenalty=10000
+
+% It is handy to define new commands for text that occurs frequently (see Discussion)
+\newcommand{\MT}{^{\mathrm{MT}}}
+\newcommand{\ga}{\gtrsim}
+\newcommand{\Lpot}{(L+1)^2}
+\newcommand{\WS}{^{\mathrm{WS}}}
+
+
+%--Format the section headers
+
+\input{packages}
+% FJS Changed this... I didn't like the numbering or the
+% indentation... so I introduced a fake chapter Main Text. 
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{5}
+
+% Add pandoc command wrapper macro thing (?)
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  % scaling factors for width and height
+  \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+  % select the smaller of both
+  \ifdim\@tempb\p@<\@tempa\p@
+    \let\@tempa\@tempb
+  \fi
+  % scaling accordingly (\@tempa < 1)
+  \ifdim\@tempa\p@<\p@
+    \scalebox{\@tempa}{\usebox\pandoc@box}%
+  % scaling not needed, use as it is
+  \else
+    \usebox{\pandoc@box}%
+  \fi
+}
+\makeatother
+
+%--set the page formatting--
+\geometry{hmargin={1.6in,1.1in},vmargin={1.5in,1.2in}}
+\doublespacing
+
+% allow code to be shwon in shaded r markdown environment
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% add csl referencing capacity and styling
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+\begin{document}
+%--front matter needs roman pagination--
+\pagenumbering{roman}
+
+%--Title Page--
+\thispagestyle{empty}
+  \begin{center}
+    \textsc{\LARGE $title$} %Fill in your information
+  \end{center}
+  \vspace{.6in}
+  \begin{center}
+    $author$
+  \end{center}
+  \vspace{.6in}
+  \begin{center}
+    \textsc{A Senior Thesis \\ %Fill in your information
+    Presented to the Faculty \\
+    of Princeton University \\
+    in Candidacy for the Degree \\
+    of Bachelor of Arts}
+  \end{center}
+  \vspace{.3in}
+  \begin{center}
+    \textsc{Recommended for Acceptance \\
+    by the Department of \\
+    Geosciences \\}
+    Advisor: $advisor$ %Fill in your information
+  \end{center}
+  \vspace{.3in}
+  \begin{center}
+    $date$ %Fill in your information
+  \end{center}
+  
+  \clearpage
+
+%--Copyright Page--
+\thispagestyle{empty}
+\vspace*{3in}
+\begin{center}
+\emph{This paper represents my own work in accordance with University regulations,} \\
+$author$
+\end{center}
+\clearpage
+
+%--Abstract-- 
+%\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{center}
+\Large \textbf{Abstract}
+\end{center}
+ $abstract$
+ \clearpage
+
+%--Acknowledgements--
+%\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\begin{center}
+\Large \textbf{Acknowledgements}
+\end{center}
+$acknowledgements$
+\clearpage
+
+%--Table of Contents--  
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+\listoffigures
+\listoftables
+%\clearpage
+
+%--Set up fancy header-- 
+\fancyhead{}
+\fancyfoot{}
+\pagestyle{fancyplain}
+\rhead{\fancyplain{\thepage}{\noindent \textsc{\rightmark} \hfill \thepage~of~\pageref{LastPage}}}
+\rfoot{\hrule \today \hfill $author$}
+\pagenumbering{arabic}
+\setlength{\headheight}{13.59999pt}.
+
+%--Reset the page numbers and set them to arabic-- 
+{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+
+%--Have sections but use chapter counters
+%\phantomsection
+\addcontentsline{toc}{chapter}{Main Text}
+
+$body$
+
+%--References--
+\small
+\renewcommand{\bibsep}{0em}
+
+\renewcommand{\bibname}{References}
+\bibliographystyle{gji}
+\bibliography{Senior-Thesis-Zhang}
+%\printbibliography[heading=none] %Used in biblatex, not natbib
+
+
+\newpage
+
+%--appendices--
+
+%\appendix
+%\appendixpage
+%\addappheadtotoc
+
+\end{document}
